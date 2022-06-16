@@ -23,6 +23,23 @@ namespace fukuvHensu
         {
             label1.Left-= vx;
             label1.Top -= vy;
+
+            if(label1.Left<0)
+            {
+                vx = -10;
+            }
+            if(label1.Top<0)
+            {
+                vy = -10;
+            }
+            if (label1.Right > ClientSize.Width)
+            {
+                vx = 10;
+            }
+            if (label1.Bottom > ClientSize.Height)
+            {
+                vy = 10;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -51,13 +68,19 @@ namespace fukuvHensu
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            MessageBox.Show("幅" + ClientSize.Width);
+            MessageBox.Show("高さ" + ClientSize.Height);
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
             MessageBox.Show("葛西達也");
             timer1.Enabled = false;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            vx = -vx;
         }
     }
 }
